@@ -1,7 +1,7 @@
 alert("Bienvenido");
-const nComisión = 48655;
+// const nComisión = 48655;
 
-let ingreso = parseInt(prompt("Ingrese el numero de comisión"));
+// let ingreso = parseInt(prompt("Ingrese el numero de comisión"));
 
 // * INTENTE RAELIZAR EL INGRESO CON WHILE,
 // PARA QUE SI SE INGRESA UN Nº DE COMISION ERRONEO VUELVA A CARGARSE HASTA DAR CON EL CORRECTO, PERO NO SALE DEL BUCLE
@@ -10,6 +10,8 @@ let ingreso = parseInt(prompt("Ingrese el numero de comisión"));
 //      alert("El numero de comisión es correcto");
 //      ingreso = parseInt(prompt("Ingrese nuevamente el nº de Comisión, por favor"));
 //      }
+
+/*
 
 console.log("El numero de comisión ingresado fue: " + ingreso);
 if (ingreso == nComisión) {
@@ -129,44 +131,6 @@ while (lugarDeEntrega !== "SALIR") {
   );
 }
 
-/** 
-console.log(
-  "Salto de programa a Consulta sobre costo de envio NO CLASICO por peso"
-);
-
-alert("--- Seccion consulta por despacho por kilos ---");
-
-
-  function suma(provincia, pesoBulto) {
-  const resultado = provincia + pesoBulto;
-
-  let = provincia = Buenos Aires
-  let = provincia = Catamarca
-  let = provincia = Chaco
-  let = provincia = Chubut
-  let = provincia = Corrientes
-  let = provincia = Entre Rios 
-  let = provincia = Formosa
-  let = provincia = Jujuy
-  let = provincia = La Pampa
-  let = provincia = La Rioja
-  let = provincia = Mendoza
-  let = provincia = Misiones
-  let = provincia = Neuquen
-  let = provincia = Rio Negro
-  let = provincia = San Juan
-  let = provincia = San Luis
-  let = provincia = San Cruz
-  let = provincia = Santa Fe
-  let = provincia = Santiago del Estero
-  let = provincia = Tierra del Fuego
-  let = provincia = Tucuman
-
-  
-
-
-  */
-
 alert(
   "Me gustaria desarrollar una función, en funcion de Kilos y provincias, ya que independientemente tienen diferentes costos según el kilaje del bulto, por ejemplo, hasta 5 Kg, $1100, hasta 10 Kg, $1800, y tambien varia por privincia, lo que para una provincia los 5 Kg, es un valor, para otra es más, si bien voy entendiendo los conceptos de las funciones me gustaria desarrolar algo como eso en un futuro"
 );
@@ -187,3 +151,141 @@ const kiloPrompt = parseInt(
 );
 
 suma(provinciaPrompt, kiloPrompt);
+
+****************************************************
+
+*/
+
+// OBJETOS LITERALES
+/*
+const persona1 = {
+  nombre: "Annnde",
+  edad: 31,
+  calle: "Entre Rios 858",
+};
+const persona2 = {
+  nombre: "Amanda",
+  edad: 30,
+  calle: "Entre Rios 842",
+};
+
+const persona3 = {
+  nombre: "Ainnne",
+  edad: 27,
+  calle: "Entre Rios 458",
+};
+
+console.log(persona1.edad);
+console.log(persona2.nombre);
+console.log(persona3.calle);
+*/
+
+// "OBJETOS" CONSTRUCTORES
+
+/* function Persona(nombre, edad, telefono) {
+  this.nombre = nombre;
+  this.edad = edad;
+  this.telefono = telefono;
+}
+
+const nombre = prompt("Ingrese su nombre:");
+const edad = parseInt(prompt("Ingrese su edad de manera numerica:"));
+const telefono = parseInt(prompt("Ingrese su numero de telefono personal:"));
+
+console.log(new Persona());
+
+
+const artCera = {
+  titulo: "Cera de Soja",
+  precio: "1335",
+  kilos: "1,004",
+};
+
+function Producto(titulo, precio, kilos) {
+  this.titulo = titulo;
+  this.precio = precio;
+  this.kilos = kilos;
+}
+
+cons artCera = new artCera()
+
+*/
+
+const productos = [
+  { nombre: "Cera", precio: 1385 },
+  { nombre: "Endurecedor", precio: 500 },
+  { nombre: "Pabilo", precio: 140 },
+  { nombre: "Ojalillos", precio: 180 },
+];
+let carrito = [];
+
+let seleccion = prompt(
+  "Bienvenidos a Anwar Insumos, si desea comprar, escriba 'Si', de lo contrario, 'No'"
+);
+
+while (seleccion != "Si" && seleccion != "No") {
+  alert("Por favor, ingrese Si o No");
+  seleccion = prompt("Desea comprar? Si o No");
+}
+
+if (seleccion == "Si") {
+  alert("Nuestros productos: ");
+  let todosMisProductos = productos.map(
+    (Productos) => Productos.nombre + " " + Productos.precio + "$"
+  );
+  alert(todosMisProductos.join(" - "));
+} else if (seleccion == "No") {
+  alert("Gracias por llegar a nuestra Web, esperamos que vuelvas pronto!!");
+}
+
+while (seleccion != "No") {
+  let productos = prompt(
+    "Comenza agregando los productos que desees a tu carrito"
+  );
+  let precio = 0;
+
+  if (
+    productos == "Cera" ||
+    productos == "Endurecedor" ||
+    productos == "Pabilo" ||
+    productos == "Ojalillos"
+  ) {
+    switch (productos) {
+      case "Cera":
+        precio = 1385;
+        break;
+      case "Endurecedor":
+        precio = 500;
+        break;
+      case "Pabilo":
+        precio = 140;
+        break;
+      case "Ojalillos":
+        precio = 180;
+        break;
+      default:
+        break;
+    }
+    let unidades = parseInt(prompt("Indique las cantidades a llevar"));
+
+    carrito.push({ productos, unidades, precio });
+    console.log(carrito);
+  } else {
+    alert("No disponemos del articulo que desea");
+  }
+
+  seleccion = prompt("Desea seguir agregando articulos?");
+  while (seleccion === "No") {
+    alert("Gracias por la compra");
+    carrito.forEach((carritoFinal) => {
+      console.log(`producto: ${carritoFinal.productos}, unidades: ${
+        carritoFinal.unidades
+      }, 
+      total a pagar ${carritoFinal.unidades * carritoFinal.precio} `);
+    });
+    break;
+  }
+}
+
+const total = carrito.reduce((acc, el) => acc + el.precio * el.unidades, 0);
+console.log(`El total a pagar por la compra es: ${total}`);
